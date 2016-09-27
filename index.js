@@ -41,7 +41,7 @@ ShortDUID.prototype.getDUID = function (count) {
     return ret;
 };
 
-ShortDUID.prototype.getDUIDInt = function (count) {
+ShortDUID.prototype.getDUIDInt = function (count, radix = 10, length) {
     var ret = [];
     var cnt;
 
@@ -50,7 +50,11 @@ ShortDUID.prototype.getDUIDInt = function (count) {
     (count > 8192 || count < 0 ) ? cnt = 1 : cnt = count;
 
     for(var i = 0; i < cnt; i++) {
-        ret.push(this.getID().toString(10));
+        let id = this.getID().toString(radix);
+        if (typeof length !== 'undefined') {
+          id = (Math.pow(10, length) + id).slice(-1 * length);
+        }
+        ret.push(id);
     }
 
     return ret;
