@@ -41,7 +41,10 @@ ShortDUID.prototype.getDUID = function (count) {
     return ret;
 };
 
-ShortDUID.prototype.getDUIDInt = function (count, radix = 10, length) {
+ShortDUID.prototype.getDUIDInt = function (count, radix, length) {
+    if (typeof radix === 'undefined') {
+      radix = 10;
+    }
     var ret = [];
     var cnt;
 
