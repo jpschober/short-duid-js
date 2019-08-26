@@ -106,7 +106,7 @@ ShortDUID.prototype.getCurrentTimeMs = function() {
     var estart = duid.epoch_start.clone();
     var now = new BN(+new Date(), 10); // Current system time in milliseconds converted to BN object
 
-    now.isub(estart).imaskn(42); // Calculate custome epoch and add/subtract drift time
+    now.isub(estart).imaskn(42); // Calculate custom epoch and add/subtract drift time
     return now.toString(10);
 };
 
