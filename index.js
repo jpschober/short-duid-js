@@ -1,6 +1,6 @@
 'use strict';
 var BN = require('bn.js'),
-    Hashids = require('hashids');
+    Hashids = require('hashids/cjs');
 
 exports.init = ShortDUID;
 
